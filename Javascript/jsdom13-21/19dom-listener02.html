@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener 捕获和冒泡阶段</title>
+    <style>
+        #box1 {
+            width: 250px;
+            height: 250px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        
+        #box2 {
+            width: 152px;
+            height: 152px;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+        
+        #box3 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var obox1 = document.getElementById("box1");
+        var obox2 = document.getElementById("box2");
+        var obox3 = document.getElementById("box3");
+
+        obox1.addEventListener("click", function() {
+            console.log("box1 捕获阶段");
+        }, true);
+        obox2.addEventListener("click", function() {
+            console.log("box2 冒泡阶段");
+        }, false);
+        obox3.addEventListener("click", function() {
+            console.log("box3 冒泡阶段");
+        }, false);
+
+
+        obox2.addEventListener("click", function() {
+            console.log("box2 捕获阶段");
+        }, true);
+        obox3.addEventListener("click", function() {
+            console.log("box3 捕获阶段");
+        }, true);
+
+        obox1.addEventListener("click", function() {
+            console.log("box1 冒泡阶段");
+        }, false);
+    </script>
+</body>
+
+</html>

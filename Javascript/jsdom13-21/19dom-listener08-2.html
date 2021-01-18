@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="制作一个弹出层，点击按钮就显示这个弹出层。点击其他任意位置则关闭这个弹出层">
+    <title>阻止事件传播案例</title>
+    <style>
+        #model {
+            width: 400px;
+            height: 200px;
+            background-color: aquamarine;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -200px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="model">
+
+    </div>
+    <button id="btn">click</button>
+    <script>
+        var oBtn = document.getElementById("btn");
+        var oModel = document.getElementById("model");
+
+        oBtn.onclick = function(e) {
+            e.stopPropagation();
+            oModel.style.display = "block";
+        }
+        document.onclick = function() {
+            oModel.style.display = "none";
+        }
+        oModel.onclick = function(e) {
+            e.stopPropagation();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点关系函数（兼容低版本IE）</title>
+</head>
+
+<body>
+    <div id="box">
+        <p id="firstpara">firstpara</p>
+        this is a text
+        <!-- 注释 -->
+        <p id="para">
+            para
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+        </p>
+        <p>para3</p>
+        <p id="lastpara">lastpara</p>
+        <p>para5</p>
+        <p>para6</p>
+    </div>
+
+    <script>
+        var box = document.getElementById("box");
+        var para = document.getElementById("para");
+        var fpara = document.getElementById("firstpara");
+        var lpara = document.getElementById("lastpara");
+
+        // 封装一个函数。这个函数可以返回节点的所有的元素孩子节点，兼容到IE6。相当于children的功能
+        // 形参node为一个节点。
+        function getChildren(node) {
+            var children = [];
+            for (var i = 0; i < node.childNodes.length; i++) {
+                if (node.childNodes[i].nodeType == 1) {
+                    children.push(node.childNodes[i]);
+                }
+            }
+            return children;
+        }
+
+        console.log(getChildren(box));
+        console.log(getChildren(para));
+
+        // 封装一个函数。这个函数可以返回节点的前一个元素兄弟节点，兼容到IE6。相当于previousElementSibling的功能
+        // 形参node为一个节点。
+        function getElementpreviousSibling(node) {
+            var o = node;
+            while (o.previousSibling != null) {
+                if (o.previousSibling.nodeType == 1) {
+                    return o.previousSibling;
+                }
+                o = o.previousSibling;
+            }
+            // return null;
+        }
+
+        console.log(getElementpreviousSibling(para));
+        // 如果没有前一个兄弟元素节点则返回一个undefined
+        // 或者可以设置默认返回null
+        console.log(getElementpreviousSibling(fpara));
+
+        // 封装一个函数，返回元素节点的所有元素兄弟节点。
+        // 两种方法，第一种就是先找到父节点。然后再遍历所有节点寻找到所有的元素节点
+        // 第二种就是循环遍历节点前面的兄弟元素节点和后面的兄弟元素节点。
+        // 此时我们采用第二种方法。 
+        function getAllElementsSibling(node) {
+            var pres = [];
+            var nexts = [];
+            var n = node;
+            while (n.previousSibling != null) {
+                if (n.previousSibling.nodeType == 1) {
+                    // 遍历前面的节点的时候要在头部进行推入，才能保证顺序正确。
+                    pres.unshift(n.previousSibling);
+                }
+                n = n.previousSibling;
+            }
+
+            n = node;
+            while (n.nextSibling != null) {
+                if (n.nextSibling.nodeType == 1) {
+                    pres.push(n.nextSibling);
+                }
+                n = n.nextSibling;
+            }
+            return pres.concat(nexts);
+        }
+        console.log(getAllElementsSibling(lpara));
+    </script>
+</body>
+
+</html>

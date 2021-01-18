@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>门票计算</title>
+</head>
+
+<body>
+    <script>
+        var day = prompt("星期：(1-7)");
+        while (isNaN(day) || day <= 0 || day > 7) {
+            console.log(isNaN(day));
+            day = prompt("请重新输入--星期：(1-7)");
+        }
+        var age = prompt("年龄：");
+        while (isNaN(day) || age <= 0) {
+            age = prompt("请重新输入正确的年龄：");
+        }
+        if (day <= 5 && day >= 1) {
+            if (age < 10) {
+                alert("该天的价格是140");
+            } else {
+                alert("该天的价格是300");
+            }
+        } else {
+            if (age < 10) {
+                alert("该天的价格是210");
+            } else {
+                alert("该天的价格是500");
+            }
+        }
+    </script>
+</body>
+
+</html>

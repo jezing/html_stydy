@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用keycode事件</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: aqua;
+            top: 200px;
+            left: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+
+    <script>
+        var oBox = document.getElementById("box");
+
+        var t_top = 200;
+        var l_left = 200;
+        document.onkeydown = function(e) {
+            switch (e.keyCode) {
+                case 37:
+                    l_left -= 3;
+                    break;
+                case 38:
+                    t_top -= 3;
+                    break;
+                case 39:
+                    l_left += 3;
+                    break;
+                case 40:
+                    t_top += 3;
+                    break;
+            }
+            oBox.style.top = t_top + "px";
+            oBox.style.left = l_left + "px";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyCode and charCode</title>
+</head>
+
+<body>
+    <input type="text" name="field1" id="field1">
+    <h1></h1>
+    <input type="text" name="field1" id="field2">
+    <h1></h1>
+    <script>
+        var field1 = document.getElementById("field1");
+        var h1 = document.getElementsByTagName("h1")[0];
+        var field2 = document.getElementById("field2");
+        var h2 = document.getElementsByTagName("h1")[1];
+
+        field1.onkeypress = function(e) {
+            h1.innerHTML = "this is charcode:" + e.charCode;
+        }
+        field2.onkeydown = function(e) {
+            h2.innerHTML = "this is keycode:" + e.keyCode;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喇叭花数：abc=a！+b!+c!</title>
+</head>
+
+<body>
+    <script>
+        function jc(x) {
+            var sum = 1;
+            for (var i = 1; i <= x; i++) {
+                sum *= i;
+            }
+            return sum;
+        }
+
+        function is_laba_numb(x) {
+            x = x.toString();
+            if (x == jc(Number(x[0])) + jc(Number(x[1])) + jc(Number(x[2]))) {
+                alert(x + "是喇叭花数");
+            }
+        }
+
+        for (var i = 100; i <= 999; i++) {
+            is_laba_numb(i);
+        }
+    </script>
+</body>
+
+</html>

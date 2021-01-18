@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.resolve(),Promise.reject()</title>
+</head>
+
+<body>
+    <script>
+        //Promise.resolve()是成功状态的Promise的简写
+        // Promise.resolve("data");
+        // 相当于
+        // new Promise(resolve=>resolve("data"));
+
+        // 参数
+        // 一般参数
+        Promise.resolve("data").then(data => {
+                console.log(data);
+            })
+            // 接收一个Promise对象,直接返回该对象，并且什么都不做。只有在调用then的时候才会操作
+        const p = new Promise(resolve => {
+            setTimeout(resolve, 1000, "runned!");
+        })
+        Promise.resolve(p).then(data => {
+                console.log(data);
+            })
+            //等价于
+        p.then(data => {
+            console.log(data);
+        })
+
+        // 当resolve函数接受的是Promise对象的时候，后面的then会根据传递的Promise的状态决定
+        // 调用哪个回调函数
+        new Promise(resolve => resolve(p)).then(data => {
+            console.log(data);
+        });
+
+        //具有then方法的对象
+        // 会直接返回一个pending状态的Promise所以不会执行后面的回调函数
+        const thenable1 = {
+            then() {
+                console.log("then");
+            }
+        }
+        console.log(Promise.resolve(thenable1)); //输出Promise {<pending>} then
+        // 会立即执行对象中的then函数，然后返回一个pending状态的Promise对象。
+        Promise.resolve(thenable1).then(data => {
+            console.log(data);
+        }, error => {
+            console.log(error);
+        })
+
+        //也可以使用thenable接受resolve和reject,进行操作具体的状态
+        const thenable2 = {
+            then(resolve, reject) {
+                resolve("data thenable2");
+                // reject("error thenable2");
+            }
+        }
+        console.log(Promise.resolve(thenable2));
+        Promise.resolve(thenable2).then(data => {
+            console.log(data);
+        }, error => {
+            console.log(error);
+        })
+
+
+
+        // Promise.reject()
+        // rejeced状态的Promise的一种简写
+        Promise.reject("Data");
+        // 相当于
+        new Promise((resolve, reject) => {
+            reject("Data");
+        })
+    </script>
+</body>
+
+</html>

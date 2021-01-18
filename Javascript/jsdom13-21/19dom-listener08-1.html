@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切断事件的传播e.stopPropagation</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <button id="btn">submit</button>
+    </div>
+    <script>
+        var oBox = document.getElementById('box');
+        var oBtn = document.getElementById("btn");
+
+        // oBox.onclick = function() {
+        //     console.log("this is box");
+        // }
+        // oBtn.onclick = function(e) {
+        //     e.stopPropagation();
+        //     console.log("this is btn");
+        // }
+
+        oBox.addEventListener("click", function(e) {
+            e.stopPropagation();
+            console.log("capture this is a box!");
+        }, true)
+
+        oBtn.addEventListener("click", function() {
+            console.log("capture this is a btn!");
+        }, true)
+    </script>
+</body>
+
+</html>

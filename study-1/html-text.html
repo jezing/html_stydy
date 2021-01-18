@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html form</title>
+</head>
+
+<body>
+    <form action="">
+        First name: <input type="text" name="first-name"> <br />
+        Last name: <input type="text" name="last-name"> <br />
+        Password : <input type="password " name="pwd">
+    </form>
+    <hr>
+
+    <form action="">
+        <input type="radio" name="sex" value="male">Male<br />
+        <input type="radio" name="sex" value="female" checked="checked">Female<br />
+    </form>
+    <hr>
+
+    <form action="">
+        <input type="checkbox" name="vehicle[]" value="bike">i have a bike <br />
+        <input type="checkbox" name="vehicle[]" value="car" checked="checked">i have a car <br />
+        <input type="submit" value="Submit">
+    </form>
+    <hr>
+
+    <form action="">
+        <fieldset>
+            <legend>Person information:</legend>
+            Name: <input type="text" size="30"> <br />
+            E-mail: <input type="text" size="30"> <br />
+            Telephone: <input type="text" size="10"> <br />
+        </fieldset>
+    </form>
+    <hr>
+
+    <form action="">
+        <select name="cars">
+            <option value="volvo" selected>Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+        <input type="button" value="chose one option">
+    </form>
+    <hr>
+    
+    <textarea name="textarea" cols="30" rows="10" >this is a textarea</textarea>
+</body>
+
+</html>

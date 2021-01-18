@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水仙花数</title>
+</head>
+
+<body>
+    <script>
+        var numb = Number(prompt("请输入一个三位数："));
+        // 数学方法。
+        while (isNaN(numb) || numb <= 99 || numb > 999) {
+            numb = Number(prompt("请输入一个正确的三位数："));
+        }
+        var n100 = Math.floor(numb / 100);
+        var n10 = Math.floor(numb / 10) % 10;
+        var n = numb % 10;
+        console.log("通过数学方法得到n100：" + n100);
+        console.log("通过数学方法得到n10：" + n10);
+        console.log("通过数学方法得到n：" + n);
+
+        if (Math.pow(n, 3) + Math.pow(n10, 3) + Math.pow(n100, 3) == numb) {
+            alert(numb + "是一个水仙花数字!")
+        } else {
+            alert(numb + "并不是水仙花数！")
+        }
+        // 字符串方法
+        numb = numb.toString();
+        var char_n100 = Number(numb.charAt(0));
+        var char_n10 = Number(numb.charAt(1));
+        var char_n1 = Number(numb.charAt(2));
+        console.log("通过字符串方法得到n100：" + char_n100);
+        console.log("通过字符串方法得到n10：" + char_n10);
+        console.log("通过字符串方法得到n1：" + char_n1);
+        if (Math.pow(char_n1, 3) + Math.pow(char_n10, 3) + Math.pow(char_n100, 3) == numb) {
+            alert("通过字符串方法 " + numb + "是一个水仙花数字!")
+        } else {
+            alert("通过字符串方法 " + numb + "并不是水仙花数！")
+        }
+    </script>
+</body>
+
+</html>

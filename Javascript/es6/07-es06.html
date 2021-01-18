@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6数组新增方法</title>
+</head>
+
+<body>
+    <script>
+        console.log([1, 2, 3, 4].includes('2')); //false
+        console.log([1, 2, 3, 4].includes(2)); //true
+        //使用（===）进行判断。其中Nan==Nan
+        console.log([1, 2, 3, 4, NaN].includes(NaN)); //true
+        //第二个参数是开始搜索的位置下标
+        console.log([1, 2, 3, 4].includes(2, 2)); //false
+        // 示例，为数组去重
+        const arr = [];
+        for (const item of[1, 2, 3, 4, 4, 1, 2]) {
+            if (!arr.includes(item)) {
+                arr.push(item);
+            }
+        }
+        console.log(arr);
+
+        // 所有可以遍历的类型都可以进行转换
+        // 数组，字符串，Set，Map，NodeList,arguments
+        console.log(Array.from("str"));
+        console.log(Array.from(new Set([1, 2, 3, 2])));
+        console.log([...new Set([1, 2, 3, 2])]);
+
+        const m = new Map();
+        m.set("name", "alex").set("age", 19);
+        console.log(Array.from(m));
+
+        //拥有length属性的对象，以及以数字下标为key的value键值对
+        const obj = {
+            "0": "a",
+            "1": "b",
+            "2": "c",
+            "name": "alex",
+            length: 4
+        }
+        console.log(Array.from(obj)); //["a", "b", "c", undefined]
+
+        console.log([1, 2, 3].map((value) => {
+            return value * 2;
+        })); //[2,4,6]
+
+        console.log(Array.from("1234", value => value * 2)); //[2,4,6,8]
+        //第三个参数，this指向
+        console.log(Array.from("1234", value => value * 2, document)); //windows
+        console.log(Array.from("1234", function(value) {
+            console.log(this);
+            return value * 2
+        }, document)); //document
+
+        // find，findIndex筛选出第一个符合条件的，返回该值或者该Index
+        console.log([1, 5, 10, 15].find((value, index, arr) => {
+            console.log(value, index, arr);
+            return value > 9;
+        }));
+
+        console.log([1, 5, 10, 15].findIndex((value, index, arr) => {
+            console.log(value, index, arr);
+            return value > 9;
+        }));
+
+        // 例子
+        const students = [{
+            name: "mr.3",
+            age: 18,
+            sex: "male"
+        }, {
+            name: "mrs.4",
+            age: 19,
+            sex: "female"
+        }, {
+            name: "mr.5",
+            age: 20,
+            sex: "male"
+        }, ]
+
+        console.log(students.find(value => value.sex === "female", document));
+        console.log(students.find(function(value) {
+            console.log(this);
+            return value.sex === "female"
+        }, document));
+    </script>
+</body>
+
+</html>

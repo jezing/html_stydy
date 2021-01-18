@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止默认事件发生02</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h1 id="info">
+
+        </h1>
+    </div>
+    <script>
+        var oBox = document.getElementById("box");
+        var oInfo = document.getElementById("info");
+
+        var nub = 0;
+        oBox.onmousewheel = function(e) {
+            // 阻止盒子内部的滚轮事件导致页面滚动。
+            e.preventDefault();
+            if (e.deltaY > 0) {
+                nub++;
+            } else {
+                nub--;
+            }
+            oInfo.innerHTML = "number:" + nub;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>伪类选择器</title>
+    <style type="text/css">
+        p {
+            height: 30px;
+        }
+        /*补充代码*/
+        
+        a {
+            text-decoration: none;
+        }
+        
+        a:link {
+            color: orange;
+            font-size: 20px;
+            border: 1px solid red;
+        }
+        
+        .suit a:visited {
+            color: green;
+        }
+        
+        .wc a:visited {
+            color: blue;
+        }
+        
+        .skin a:visited {
+            color: purple;
+        }
+        
+        div+p {
+            color: red;
+        }
+        
+        div.cs1 {
+            color: pink;
+        }
+        
+        div.cs1~p {
+            color: green;
+        }
+        
+        li:first-child {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>商品列表</h2>
+    <p class="suit">
+        <a href="#12">衣服鞋帽</a>
+    </p>
+    <p class="wc">
+        <a href="#21">厕所清洁</a>
+    </p>
+    <p class="skin">
+        <a href="#33">化妆用品</a>
+    </p>
+    <div>
+        <div class="cs1">
+            <p>aaaaa</p>
+            <p>bbbbb</p>
+            <p>ccccc</p>
+        </div>
+        <p>ddddd</p>
+        <p>eeeee</p>
+        <p>fffff</p>
+    </div>
+    <div>
+        我是第1个div
+    </div>
+    <p>我是第1个p</p>
+    <p>我是第2个p</p>
+    <div>
+        我是第2个div
+    </div>
+    <p>我是第3个p</p>
+    <p>我是第4个p</p>
+    <p>我是第5个p</p>
+
+    <ul>
+        <li>
+            家用电器
+            <ol>
+                <li>冰箱</li>
+                <li>洗衣机</li>
+                <li>空调</li>
+            </ol>
+        </li>
+        <li>
+            清洁用品
+            <ol>
+                <li>洗衣液</li>
+                <li>消毒液</li>
+                <li>洁厕灵</li>
+            </ol>
+        </li>
+        <li>母婴用品</li>
+    </ul>
+</body>
+
+</html>

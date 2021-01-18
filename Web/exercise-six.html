@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        div {
+            width: 250px;
+            height: 150px;
+            background-color: #eee;
+            margin-top: 5px;
+        }
+        
+        section {
+            width: 200px;
+            height: 30px;
+            margin-bottom: 5px;
+            background-color: #ff0;
+        }
+        /*此处写代码*/
+        
+        section:empty {
+            background-color: #abcdef;
+        }
+        
+        div:empty {
+            background-color: #f00;
+        }
+        
+        div.text::after {
+            content: "(备注)";
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        ul li::before {
+            content: "*";
+            text-align: center;
+        }
+        
+        div input:hover {
+            border-color: orange;
+        }
+        
+        div input:focus {
+            background-color: #f00;
+        }
+        
+        div.urls ul li:first-child {
+            color: orange;
+        }
+        
+        #div p span {
+            color: green;
+        }
+        
+        #div .p1 span:first-child {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <p class="p1">
+            <span>权值相同，</span>就近原则
+        </p>
+        <p class="p2">
+            <span>权值不同，</span>哪个权值高，就用哪个
+        </p>
+    </div>
+
+
+    <div>
+        <section>one</section>
+        <section>two</section>
+    </div>
+    <div></div>
+    <div>
+        <section>three</section>
+        <section>four</section>
+        <section>five</section>
+        <section></section>
+    </div>
+    <div class="text">
+        这是一段文字.
+    </div>
+
+    <ul>
+        <li>我是第一</li>
+        <li>我是第二</li>
+        <li>我是第三</li>
+        <li>我是第四</li>
+    </ul>
+
+    <div>
+        user: <input type="text" clsaa="username"> pwd: <input type="password" class="password">
+    </div>
+
+    <div class="urls">
+        <ul>
+            <li style="color:green" class="li1">JS基础</li>
+            <li>JS函数</li>
+            <li>JS对象</li>
+        </ul>
+        <ol>
+            <li class="li1">CSS基础</li>
+            <li>CSS语法</li>
+            <li>CSS优先级</li>
+        </ol>
+    </div>
+
+
+</body>
+
+</html>

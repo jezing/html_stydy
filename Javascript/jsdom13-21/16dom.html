@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改元素标签的CSS样式和HTML属性</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <a href="https://www.baidu.com" id="link">去百度</a>
+    </div>
+    <script>
+        var oBox = document.getElementById("box");
+        oBox.style.backgroundColor = "red";
+
+        var olink = document.getElementById("link");
+        olink.href = "https://www.imooc.com";
+        olink.innerText = "去慕课";
+
+        oBox.setAttribute("data-n", "10");
+        alert(oBox.getAttribute("data-n"));
+    </script>
+</body>
+
+</html>

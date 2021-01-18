@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点的创建和挂载,克隆</title>
+</head>
+
+<body>
+    <div id="box1">
+        <p>old para1</p>
+        <p>old para2</p>
+        <p>old para3</p>
+        <ul>
+            <li>牛奶</li>
+            <li>咖啡</li>
+            <li>可乐</li>
+        </ul>
+    </div>
+    <div id="box2">
+
+    </div>
+    <script>
+        var new_node = document.createElement("p");
+        new_node.innerText = "new para";
+
+        var oBox1 = document.getElementById("box1");
+        var oBox2 = document.getElementById("box2");
+        // oBox1.appendChild(new_node);
+
+        oBox1.insertBefore(new_node, oBox1.getElementsByTagName("p")[0])
+        var old_list = oBox1.getElementsByTagName("ul")[0];
+
+        var new_list = old_list.cloneNode(true);
+        oBox2.appendChild(new_list);
+    </script>
+</body>
+
+</html>

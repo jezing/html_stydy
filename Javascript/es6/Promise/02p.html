@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise基本用法</title>
+</head>
+
+<body>
+    <script>
+        // 实例化之后的状态为pending(未完成状态)
+        // 状态进行改变之后就不会再改变
+        // 即是状态只能由pending->fulfilled,或者pending->rejected
+        const p = new Promise((resolve, reject) => {
+            // pending->fulfilled
+            // 传递参数由then函数的第一个回调函数进行接受
+            resolve("it's first data");
+
+            // pending->rejected
+            // 传递函数由then函数的第二个回调函数进行接受
+            // reject(new Error("it's the second error reason"));
+        });
+        // then实例函数的第一个参数是fulfilled状态的执行函数
+        // then实例函数的第二个参数是rejected状态的执行函数
+        // then函数会返回一个成功状态下的Promise对象
+        const p2 = p.then((data) => {
+            console.log("first successfully ", data);
+            // 默认返回下面一个函数
+            // return new Promise((resolve, reject) => {
+            //     resolve();
+            // })
+            // 也可以直接然会一个值,作为成功状态的参数
+            return "this is a succeed time";
+            // 相当于
+            // return new Promise((resolve, reject) => {
+            //     resolve("this is a succeed time");
+            // })
+
+            // 也可以自己进行返回值的定义
+            // return new Promise((resolve, reject) => {
+            //     // resolve("it's the second data");
+            //     // reject(new Error("it's the second error reason"));
+            // })
+        }, (error) => {
+            console.log("first failedly", error);
+            //默认返回
+            // return new Promise((resolve, reject) => {
+            //     resolve();
+            // })
+
+
+            // 自己定义
+            // return new Promise((resolve, reject) => {
+            //     // resolve("it's the second data");
+            //     // reject(new Error("it's the second error reason"));
+            // })
+        })
+
+        // 对于默认返回的示例
+        p2.then((data) => {
+            //默认返回的时候是没有定义data的，所以data=undefined；
+            console.log("second successfully ", data);
+        }, (error) => {
+            console.log("second failedly", error);
+        });
+    </script>
+</body>
+
+</html>

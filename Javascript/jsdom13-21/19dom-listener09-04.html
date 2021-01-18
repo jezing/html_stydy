@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="onmouseenter,onmouseover">
+    <title>事件委托</title>
+</head>
+
+<body>
+    <button id="btn">ceat a new li</button>
+    <ul id="list">
+        <li> this is a li</li>
+        <li> this is a li</li>
+        <li> this is a li</li>
+        <li> this is a li</li>
+    </ul>
+    <script>
+        var oList = document.getElementById("list");
+        var oBtn = document.getElementById("btn");
+
+        // // onmouseenter这个属性天生就是不冒泡的，所以此时的监听target就是监听本身的ul，所以一碰到ul，整个ul就会变红
+        // oList.onmouseenter = function(e) {
+        //     // e.target表示用户实际点击到的哪个元素
+        //     // e.currentTarget表示事件附加到的那个元素，在这里就表示为整个ul
+        //     e.target.style.color = "red";
+        // }
+
+        oList.onmouseover = function(e) {
+            // e.target表示用户实际点击到的哪个元素
+            // e.currentTarget表示事件附加到的那个元素，在这里就表示为整个ul
+            e.target.style.color = "red";
+        }
+
+        // 新增一个li的时候不需要再添加额外的事件监听
+        oBtn.onclick = function() {
+            var newli = document.createElement("li");
+            newli.innerText = "this is a new li";
+            oList.appendChild(newli);
+        }
+    </script>
+</body>
+
+</html>

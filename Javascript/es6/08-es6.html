@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6对象新增方法</title>
+</head>
+
+<body>
+    <script>
+        const apple = {
+            color: "red",
+            shape: "圆形",
+            taste: "sweet"
+        }
+        const pen = {
+                color: "black",
+                shape: "圆柱形",
+                func: "write"
+            }
+            // console.log(Object.assign(目标对象，源对象1，源对象2......));
+            //都合并到第一个参数的对象中去。同名属性后面的对象属性会覆盖前面的。
+        console.log(Object.assign(pen, apple));
+        console.log(Object.assign(pen, apple) === pen);
+        console.log({...pen,
+            ...apple
+        } === pen);
+        // 可以合并多个对象
+        const newobj = {};
+        console.log(Object.assign(newobj, pen, apple));
+        console.log(newobj);
+
+        // 基本数据类型作为源对象,想转换为对象，然后合并
+        console.log(Object.assign({}, undefined)); //{}
+        console.log(Object.assign({}, null)); //{}
+        console.log(Object.assign({}, 1)); //{}
+        console.log(Object.assign({}, true)); //{}
+        console.log(Object.assign({}, "str")); //{0: "s", 1: "t", 2: "r"}
+
+        // 例子
+        const logUserParams = userOptions => {
+            const DEFAULT = {
+                user: "root",
+                pwd: "admin",
+                super: false
+            }
+            const options = Object.assign({}, DEFAULT, userOptions)
+            console.log(options);
+        }
+        logUserParams();
+        logUserParams({});
+        logUserParams({
+            user: "alex"
+        });
+
+
+
+        // 对象keys，values，entries返回都是数组
+        const person = {
+            name: "alex",
+            age: 18,
+            kid: false,
+            sex: "male"
+        }
+        console.log(Object.keys(person)); //["name", "age", "kid", "sex"]
+        console.log(Object.values(person)); //["alex", 18, false, "male"]
+        console.log(Object.entries(person));
+        // (4)[Array(2), Array(2), Array(2), Array(2)]
+        // 0: (2)["name", "alex"]
+        // 1: (2)["age", 18]
+        // 2: (2)["kid", false]
+        // 3: (2)["sex", "male"]
+
+        //与数组类似函数的对比。数组返回的都是可迭代对象
+        console.log([...
+            "123"
+        ].keys()); //Array Iterator {}
+        console.log([...
+            "123"
+        ].values()); //Array Iterator {}
+        console.log([...
+            "123"
+        ].entries()); //Array Iterator {}
+
+
+        // 使用for...of遍历对象
+        // 直接使用是不可以的，for（const item of person）{} 这是错的
+        for (const key of Object.keys(person)) {
+            console.log(`key is ${key}`);
+        }
+        for (const value of Object.values(person)) {
+            console.log(`value is ${value}`);
+        }
+        for (const [key, value] of Object.entries(person)) {
+            console.log(`${key}  :  ${value}`);
+        }
+    </script>
+</body>
+
+</html>

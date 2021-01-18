@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6字符串新增方法</title>
+</head>
+
+<body>
+
+    <input type="text" id="inp" />
+    <input type="submit" value="submit" id="btn" />
+
+    <script>
+        const inp = document.getElementById("inp");
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("click", () => {
+            // console.log(inp.value);
+            if (inp.value.trim() !== "") {
+                console.log(inp.value.trim());
+            } else {
+                console.log("It is null");
+                inp.value = "";
+            }
+        }, false);
+
+
+        let url = "https://www.imooc.com/course/list";
+        const addUrlParams = (url, name, value) => {
+            const lastChar = url.charAt(url.length - 1);
+            // console.log(lastChar);
+            if (lastChar == "?") {
+                url += `${name}=${value}`;
+            } else {
+                url += url.includes("?") ? "&" : "?";
+                url += `${name}=${value}`;
+
+            }
+            return url;
+        }
+        url = addUrlParams(url, "c", "fe");
+        console.log(url);
+        url = addUrlParams(url, "sort", "pop");
+    </script>
+</body>
+
+</html>

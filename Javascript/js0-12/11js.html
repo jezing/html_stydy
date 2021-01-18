@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+
+<body>
+    <script>
+        function createCheckTemp(standard) {
+            function checkTemp(n) {
+                if (n <= standard) {
+                    alert("正常");
+                } else {
+                    alert("异常");
+                }
+            }
+            return checkTemp;
+        }
+        // 会记忆住内部函数在定义的时候的相对应的外部环境。将这个整体称作是一个闭包。
+
+        // 创建一个checkTemp函数，它是以37.1为标准线的。
+        // 此时的checkTemp_a就是代表的standard是37.1下的内部函数checkTemp()
+
+        var checkTemp_a = createCheckTemp(37.1);
+        checkTemp_a(37);
+
+        // 创建一个checkTemp函数，它是以36.9为标准线的。
+        // 此时的checkTemp_a就是代表的standard是36.9下的内部函数checkTemp()
+        var checkTemp_b = createCheckTemp(36.9);
+        checkTemp_a(37);
+
+        // 封装一个函数,其函数的功能就是私有化变量.
+        function fun() {
+            var a = 0;
+            return {
+                getA: function() {
+                    return a;
+                },
+                add: function() {
+                    a++;
+                },
+                pow: function() {
+                    a *= 2;
+                }
+            };
+        }
+        var obj = fun();
+        // 需要在外部使用这个a变量的时候就只能调用getA方法进行
+        document.write(obj.getA());
+        obj.add();
+        obj.add();
+        obj.add();
+        document.write(obj.getA());
+    </script>
+</body>
+
+</html>

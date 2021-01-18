@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9*9乘法表</title>
+    <style>
+        td {
+            width: 100px;
+            height: 20px;
+            border: 1px solid #000;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="contents">
+
+    </table>
+
+
+    <script>
+        var oTable = document.getElementById("contents");
+
+        for (var i = 1; i <= 9; i++) {
+            var line = document.createElement("tr");
+            for (var j = 1; j <= i; j++) {
+                var cell = document.createElement("td");
+                line.appendChild(cell);
+                cell.innerText = i + " * " + j + "=" + i * j;
+            }
+            oTable.appendChild(line);
+        }
+    </script>
+</body>
+
+</html>

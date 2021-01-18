@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>Dom 获得节点</title>
+</head>
+
+<body>
+    <div id="box">
+        <p>para1</p>
+        <p id="spec">para2</p>
+        <p>para3</p>
+    </div>
+    <script>
+        var box = document.getElementById("box");
+        var spec = document.getElementById("spec");
+
+        // box的所有子节点
+        console.log(box.childNodes);
+        // box的所有元素子节点
+        console.log(box.children);
+
+        // 父节点
+        console.log(spec.parentNode);
+
+        // 第一个子节点
+        console.log(box.firstChild);
+        // 第一个元素子节点（IE9开始兼容）
+        console.log(box.firstElementChild);
+
+        // 最后一个子节点
+        console.log(box.lastChild);
+        // 最后一个子节点（IE9开始兼容）
+        console.log(box.lastElementChild);
+
+        // 前一个兄弟节点
+        console.log(spec.previousSibling);
+        // 前一个元素兄弟节点（IE9兼容）
+        console.log(spec.previousElementSibling)
+
+        // 后一个兄弟节点
+        console.log(spec.nextSibling);
+        // 后一个元素兄弟节点（IE9兼容）
+        console.log(spec.nextElementSibling);
+    </script>
+
+
+</body>
+
+</html>

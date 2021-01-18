@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS table</title>
+    <style>
+        #information {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #information th,
+        #information td {
+            font-size: 1em;
+            border: rgb(161, 206, 94) solid 1px;
+            padding: 3px 7px 2px 7px;
+        }
+
+        #information th {
+            background-color: rgb(167, 201, 66);
+            font-size: 1.1em;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            color: white;
+        }
+
+        #information tr.alt td {
+            color: black;
+            background-color: rgb(234, 242, 211);
+        }
+        caption {
+            caption-side: bottom;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.1em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table id="information">
+        <caption><strong>1.1 Customers</strong> </caption>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr class="alt">
+            <td>Berglunds snabbköp</td>
+            <td>Christina Berglund</td>
+            <td>Sweden</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+        <tr class="alt">
+            <td>Ernst Handel</td>
+            <td>Roland Mendel</td>
+            <td>Austria</td>
+        </tr>
+        <tr>
+            <td>Island Trading</td>
+            <td>Helen Bennett</td>
+            <td>UK</td>
+        </tr>
+        <tr class="alt">
+            <td>Königlich Essen</td>
+            <td>Philip Cramer</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Yoshi Tannamuri</td>
+            <td>Canada</td>
+        </tr>
+        <tr class="alt">
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>Italy</td>
+        </tr>
+        <tr>
+            <td>North/South</td>
+            <td>Simon Crowther</td>
+            <td>UK</td>
+        </tr>
+        <tr class="alt">
+            <td>Paris spécialités</td>
+            <td>Marie Bertrand</td>
+            <td>France</td>
+        </tr>
+    </table>
+
+
+</body>
+
+</html>

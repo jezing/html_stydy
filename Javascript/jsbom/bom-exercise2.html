@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楼层导航效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            height: 5000px;
+        }
+        
+        .content-part {
+            width: 400px;
+            margin: 20px auto;
+            margin-top: 0px;
+            background-color: #666;
+            font-size: 40px;
+        }
+        
+        ul {
+            width: 50px;
+            height: 200px;
+            position: fixed;
+            right: 0px;
+            top: 40px;
+            list-style: none;
+            background-color: orange;
+        }
+        
+        ul li {
+            height: 40px;
+            text-align: center;
+            font-weight: bold;
+            line-height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        ul li.current {
+            background: purple;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li data-n="娱乐" class="current">娱乐</li>
+        <li data-n="综艺">综艺</li>
+        <li data-n="科技">科技</li>
+        <li data-n="民生">民生</li>
+        <li data-n="体育">体育</li>
+    </ul>
+
+    <section class="content-part" style="height:554px;" data-n="娱乐"> 娱乐栏目 </section>
+    <section class="content-part" style="height:621px;" data-n="综艺"> 综艺栏目 </section>
+    <section class="content-part" style="height:756px;" data-n="科技"> 科技栏目 </section>
+    <section class="content-part" style="height:624px;" data-n="民生"> 民生栏目 </section>
+    <section class="content-part" style="height:534px;" data-n="体育"> 体育栏目 </section>
+
+    <script>
+        var list = document.getElementById("list");
+        var lis = document.querySelectorAll("#list li");
+
+        list.onclick = function(e) {
+            if (e.target.tagName.toLowerCase() == "li") {
+                var n = e.target.getAttribute("data-n");
+                var contentPart = document.querySelector(".content-part[data-n=" + n + "]");
+                console.log(contentPart.offsetTop);
+                document.documentElement.scrollTop = contentPart.offsetTop;
+            }
+        }
+
+        var offsetTopArr = [];
+        var nowfloor = -1;
+        var contentParts = document.querySelectorAll(".content-part");
+        for (var i = 0; i < contentParts.length; i++) {
+            offsetTopArr.push(contentParts[i].offsetTop);
+        }
+        offsetTopArr.push(Infinity);
+        console.log(offsetTopArr);
+
+        window.onscroll = function() {
+            var i;
+            var scrollTop = document.documentElement.scrollTop;
+            for (i = 0; i < offsetTopArr.length; i++) {
+                if (scrollTop >= offsetTopArr[i] && scrollTop <= offsetTopArr[i + 1]) {
+                    break;
+                }
+            };
+            if (nowfloor != i) {
+                console.log(i);
+                nowfloor = i;
+            }
+            for (var j = 0; j < lis.length; j++) {
+                if (j == i) {
+                    lis[j].className = "current";
+                } else {
+                    lis[j].className = "";
+                }
+            }
+        }
+    </script>
+
+
+    <!-- <div id="box">
+        <p id="para">
+
+        </p>
+        <script>
+            var para = document.getElementById("para");
+            // offsetTop表示到具有定位元素的祖先的高度距离，如果父亲元素中没有定位元素，则表示到页面顶部的距离
+            console.log(para.offsetTop);
+        </script>
+    </div> -->
+</body>
+
+</html>

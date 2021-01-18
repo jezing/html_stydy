@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=20dom-timer01, initial-scale=1.0">
+    <title>延时器</title>
+</head>
+
+<body>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <script>
+        var oBtn_start = document.getElementById("start");
+        var oBtn_stop = document.getElementById("stop");
+
+        var timer;
+
+        oBtn_start.onclick = function() {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                alert("hello");
+            }, 3000);
+        }
+
+        oBtn_stop.onclick = function() {
+            clearTimeout(timer);
+
+        }
+    </script>
+</body>
+
+</html>

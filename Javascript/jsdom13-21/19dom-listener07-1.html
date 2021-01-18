@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止默认事件发生01</title>
+</head>
+
+<body>
+    <input type="text " id="field">
+
+    <script>
+        var oField = document.getElementById("field");
+
+        oField.onkeypress = function(e) {
+            // 根据用户输入的字符的字符码进行判断。
+            // 当字符码在数字（48-57）或者字母（97-122）时才能进行显示
+            if (!(e.charCode >= 48 && e.charCode <= 57 || e.charCode >= 97 && e.charCode <= 122)) {
+                e.preventDefault();
+            }
+        };
+    </script>
+</body>
+
+</html>

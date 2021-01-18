@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="事件委托-批量添加事件件提供">
+    <title>事件委托</title>
+</head>
+
+<body>
+    <ul id="list">
+
+    </ul>
+    <script>
+        var nub = prompt("plz entry your list's account:");
+        var oList = document.getElementById("list");
+        for (var i = 1; i <= nub; i++) {
+            var newli = document.createElement("li");
+            newli.innerText = "new list";
+            oList.appendChild(newli);
+            newli.onclick = function(e) {
+                e.stopPropagation();
+                this.style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>

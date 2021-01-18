@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position exercise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div.carousel {
+            width: 650px;
+            height: 360px;
+            margin: 40px auto;
+            border: 1px solid #000;
+            position: relative;
+        }
+        
+        a.btn {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            margin-top: -20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        
+        a:hover {
+            background-color: rgba(101, 183, 238, 0.5);
+            color: white;
+        }
+        
+        a.leftbtn {
+            left: 50px;
+        }
+        
+        a.rightbtn {
+            right: 50px;
+        }
+        
+        .carousel ul {
+            position: absolute;
+            width: 160px;
+            height: 20px;
+            right: 20px;
+            bottom: 20px;
+            list-style: none;
+        }
+        
+        .carousel ul li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+        
+        .carousel ul li.current {
+            background-color: rgba(101, 183, 238, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <img src="/images/gugong.jpg" alt="">
+        <a class="leftbtn btn">&lt;</a>
+        <a class="rightbtn btn">&gt;</a>
+        <ul>
+            <li></li>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+</body>
+
+</html>

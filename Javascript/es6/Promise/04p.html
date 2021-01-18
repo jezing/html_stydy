@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>catch方法</title>
+</head>
+
+<body>
+    <script>
+        new Promise((resolve, reject) => {
+                reject("reason");
+            }).then((data) => {
+                console.log(data);
+            }).catch(error => {
+                console.log(error);
+                // 默认返回undefined
+                // way1
+                //return undefinded;
+                // way2
+                throw new Error("throw an error");
+            })
+            // catch相当于then的一个特例,处理异常状态操作如下，都是返回一个默认为成功状态下的Promise
+            // .then(null,error=>{
+            //     console.log(error);
+            //     return undefined;
+            // })
+            .then(data => {
+                console.log(data);
+            }).catch(error => {
+                console.log(error);
+            })
+    </script>
+</body>
+
+</html>

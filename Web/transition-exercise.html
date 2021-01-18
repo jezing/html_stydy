@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 1200px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        li {
+            float: left;
+            width: 380px;
+            height: 210px;
+            margin-right: 20px;
+            position: relative;
+        }
+        
+        li img {
+            width: 380px;
+            height: 210px;
+        }
+        
+        ul li p {
+            position: absolute;
+            width: 370px;
+            padding-left: 10px;
+            height: 30px;
+            line-height: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, .4);
+            bottom: 0;
+            transition: all 0.5s linear 0s;
+            opacity: 0;
+        }
+        
+        ul li:hover p {
+            opacity: 0.7;
+            background-color: rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="../images/beijing/gugong.jpg" alt="故宫">
+                <p>北京故宫</p>
+            </li>
+            <li>
+                <img src="../images/beijing/1.jpg" alt="鸟巢">
+                <p>北京鸟巢体育馆</p>
+            </li>
+            <li>
+                <img src="../images/beijing/2.jpg" alt="十七孔桥">
+                <p>十七孔桥</p>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+
+</html>

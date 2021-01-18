@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Cat rotate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 40px auto;
+            perspective: 800px;
+            position: relative;
+        }
+        
+        .box img {
+            width: 200px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            transition: transform 1s ease 0s;
+        }
+        
+        .box img.dog {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotateX(0);
+            transform-origin: 50% 100%;
+        }
+        
+        .box img.cat {
+            transform: rotate(0);
+        }
+        
+        .box:hover img.dog {
+            transform: rotateX(-180deg);
+        }
+        
+        .box:hover img.cat {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img class="cat" src="/images/icons-rotate-x-y/cat.jpg" alt="cat">
+        <img class="dog" src="/images/icons-rotate-x-y/dog.jpg" alt="dog">
+    </div>
+
+</body>
+
+</html>

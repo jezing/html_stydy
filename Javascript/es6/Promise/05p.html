@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finally方法</title>
+</head>
+
+<body>
+    <script>
+        // finally在Promise状态改变的时候就会执行，且不会接受参数
+        new Promise((resolve, reject) => {
+            reject("error reason");
+        }).finally(data => {
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        })
+
+        // finally也是then的一种特殊方法。相当于下面的一系列操作
+
+        new Promise((resolve, reject) => {
+                resolve(123);
+                // reject("error");
+            })
+            // finally就是什么都不操作，如果是fulfill状态则向下传递一个fulfilled状态的Promise
+            // 如果是rejected状态就向下传递异常状态的Promise
+            .then(data => {
+                return data;
+                // 相当于如下：
+                return new Promise(resolve => {
+                    resolve(data);
+                })
+            }, error => {
+                return new Promise((resolve, reject) => {
+                    reject(error);
+                })
+            }).then(data => {
+                console.log(data);
+            }).catch(error => {
+                console.log(error);
+            })
+    </script>
+</body>
+
+</html>

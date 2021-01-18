@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table text</title>
+    <style>
+        table {
+            border: 2px solid black;
+            /* 表格折叠 */
+            border-collapse: collapse;
+        }
+        
+        thead th {
+            background: greenyellow;
+            border: 2px solid black;
+            margin: 0;
+            padding: 2;
+        }
+        
+        tbody th {
+            background: greenyellow;
+            border: 2px solid black;
+            margin: 0;
+            padding: 2;
+        }
+        
+        td {
+            background: honeydew;
+            border: 2px solid black;
+            margin: 0;
+            padding: 2;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>
+            <strong>课程表</strong>
+        </caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th rowspan="2">上午</th>
+                <td>语文</td>
+                <td rowspan="2">数学</td>
+                <td>语文</td>
+                <td>语文</td>
+                <td>英语</td>
+            </tr>
+            <tr>
+                <td>英语</td>
+                <td>英语</td>
+                <td>英语</td>
+                <td>数学</td>
+            </tr>
+            <tr>
+                <th colspan="6">
+                    午间休息
+                </th>
+            </tr>
+            <tr>
+                <th rowspan="2">下午</th>
+                <td>科学</td>
+                <td>音乐</td>
+                <td>体育</td>
+                <td>体育</td>
+                <td>体育</td>
+            </tr>
+            <tr>
+                <td>体育</td>
+                <td>生物</td>
+                <td>生物</td>
+                <td>科学</td>
+                <td>音乐</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>

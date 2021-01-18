@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="html-table" content="width=device-width, initial-scale=1.0">
+    <title>html table</title>
+</head>
+
+<body>
+    <h2>水平标题</h2>
+    <table border="1">
+        <caption>Person Telephone</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Telephone</th>
+                <th>Telephone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Bill Gates</th>
+                <th>555 77 854</th>
+                <th>555 77 854</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>垂直标题</h2>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <td>Bill Gates</td>
+        </tr>
+        <tr>
+            <th>Telephone:</th>
+            <td>555 77 854</td>
+        </tr>
+        <tr>
+            <th>Telephone:</th>
+            <td>555 77 855</td>
+        </tr>
+    </table>
+
+    <h2>单元格跨两列</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th colspan="2">Telephone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bill Gates</td>
+                <td>555 77 854</td>
+                <td>555 77 855</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>单元格跨两行</h2>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <td>Bill Gates</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Telephone</th>
+            <td>555 77 854</td>
+        </tr>
+        <tr>
+            <td>555 77 855</td>
+        </tr>
+    </table>
+
+    <h2>表格里面包含其他元素</h2>
+    <table border="1">
+        <tr>
+            <td>这是一个段落：
+                <p>phase 1</p>
+                <p>phase 2</p>
+            </td>
+            <td>
+                <table border="1">这是一个表格：
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>这是一个列表
+                <ul>
+                    <li>line1</li>
+                    <li>line2</li>
+                    <li>line3</li>
+                </ul>
+            </td>
+            <td>
+                HELLO
+            </td>
+        </tr>
+    </table>
+
+    <h2>单元格边距</h2>
+    <table border="1">
+        <caption>no cellpadding</caption>
+        <tr>
+            <td>cell1</td>
+            <td>cell2</td>
+        </tr>
+        <tr>
+            <td>cell3</td>
+            <td>cell4</td>
+        </tr>
+    </table>
+
+    <table border="1" cellpadding = "100">
+        <caption>cellpadding = 100</caption>
+        <tr>
+            <td>cell1</td>
+            <td>cell2</td>
+        </tr>
+        <tr>
+            <td>cell3</td>
+            <td>cell4</td>
+        </tr>
+    </table>
+
+    <h2>单元格间距</h2>
+    <table border="1" >
+        <caption>no cellspacing</caption>
+        <tr>
+            <td>cell1</td>
+            <td>cell2</td>
+          </tr>
+          <tr>
+            <td>cell3</td>
+            <td>cell4</td>
+          </tr>
+    </table>
+    
+    <table border="1" cellspacing = "0">
+        <caption>cellspacing = 0</caption>
+        <tr>
+            <td>cell1</td>
+            <td>cell2</td>
+          </tr>
+          <tr>
+            <td>cell3</td>
+            <td>cell4</td>
+          </tr>
+    </table>
+
+    <table border="1" cellspacing = "10">
+        <caption>cellspacing = 10</caption>
+        <tr>
+            <td>cell1</td>
+            <td>cell2</td>
+          </tr>
+          <tr>
+            <td>cell3</td>
+            <td>cell4</td>
+          </tr>
+    </table>
+
+</body>
+
+</html>

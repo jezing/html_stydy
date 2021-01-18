@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+
+<body>
+    <h1 id="info">0</h1>
+
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+    <script>
+        var oInfo = document.getElementById("info");
+        var oBtn_start = document.getElementById("start");
+        var oBtn_stop = document.getElementById("stop");
+
+        var a = 0;
+        var timer;
+        oBtn_start.onclick = function() {
+            // 防止定时器叠加，可以在设置定时器之前先清除定时器。
+            clearInterval(timer);
+            timer = setInterval(function() {
+                oInfo.innerText = ++a;
+            }, 1000);
+        };
+        oBtn_stop.onclick = function() {
+            clearInterval(timer);
+        };
+    </script>
+</body>
+
+</html>

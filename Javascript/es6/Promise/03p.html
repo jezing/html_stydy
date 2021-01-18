@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback hell的Promise解决方法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            box-sizing: border-box;
+            border: 1px solid #000;
+            transition: all .5s ease-in-out 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box');
+        const move = (elem, {
+            x = 0,
+            y = 0
+        } = {}, end = () => {}) => {
+            elem.style.transform = `translate3d(${x}px,${y}px,0)`;
+            elem.addEventListener("transitionend", () => {
+                end()
+            }, false);
+        }
+
+        const movePromise = (elem, point) => {
+            return new Promise(resolve => {
+                move(elem, point, () => {
+                    resolve();
+                })
+            })
+        }
+
+        document.addEventListener("click", () => {
+            movePromise(box, {
+                x: 150
+            }).then(() => {
+                return movePromise(box, {
+                    x: 150,
+                    y: 150
+                }).then(() => {
+                    return movePromise(box, {
+                        y: 150
+                    }).then(() => {
+                        movePromise(box, {})
+                    })
+                })
+            })
+        }, false);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC Document</title>
+    <style>
+        /* .box {
+            border: 3px solid black;
+            width: 200px;
+        }
+        
+        .box1 {
+            width: 80px;
+            height: 60px;
+            background-color: aqua;
+            float: left;
+        }
+        
+        .box2 {
+            width: 80px;
+            height: 60px;
+            background-color: orange;
+            float: left;
+        }
+        
+        div.textbox {
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid black;
+            overflow: hidden;
+        } */
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* div.box {
+            border: 1px solid #000;
+            overflow: hidden;
+            margin: 10px auto;
+        } */
+        
+        .clearfix::after {
+            content: "";
+            clear: both;
+            /* 转为块级元素才有效果 */
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .p1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin-right: 25px;
+            float: left;
+        }
+        
+        .p2 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-right: 25px;
+            float: left;
+        }
+        
+        .c2 {
+            clear: both;
+        }
+        
+        .h20 {
+            height: 20px
+        }
+        
+        .h18 {
+            height: 18px
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <!-- <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div> -->
+
+    <!-- <div class="textbox">
+        文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+    </div> -->
+
+    <div class="box clearfix">
+        <p class="p1"></p>
+        <p class="p1"></p>
+    </div>
+    <div class="box clearfix">
+        <p class="p2"></p>
+        <p class="p2"></p>
+    </div>
+
+
+    <div class="c1">
+        <p class="p1"></p>
+        <p class="p1"></p>
+    </div>
+
+    <div class="c2 h20"></div>
+
+    <div class="c1">
+        <p class="p2"></p>
+        <p class="p2"></p>
+    </div>
+</body>
+
+</html>

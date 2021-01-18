@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form text</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <p>
+            plz enter your name:<input type="text">
+        </p>
+        <p>
+            Enrolment in institutions:<input type="text" value="清华大学">
+        </p>
+        <p>
+            Enrolment in institutions:<input type="text" value="清华大学" disabled>
+        </p>
+        <p>
+            Graduate schools:<input type="text" placeholder="请输入真实的毕业院校">
+        </p>
+    </form>
+
+    <form action="" method="post">
+        <p>
+            Gender:
+            <input type="radio">Male
+            <input type="radio">Female
+        </p>
+        <p>
+            Gender:
+            <input type="radio" name="gender" value="male" checked="checked">Male
+            <input type="radio" name="gender" value="female">Female
+        </p>
+        <p>
+            Blood group:
+            <input type="radio" name="blood-type" value="a">A
+            <input type="radio" name="blood-type" value="b">B
+            <input type="radio" name="blood-type" value="ab">AB
+            <input type="radio" name="blood-type" value="o" checked="checked">O
+        </p>
+
+    </form>
+
+    <form action="" method="post">
+        <!-- html5 -->
+        <p>
+            Gender:
+            <label>
+                <input type="radio" name="gender" value="male">Male
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female">Female
+            </label>
+        </p>
+        <!-- html4 -->
+        <p>
+            Blood group:
+            <input type="radio" name="blood-type" value="a" id="A"> <label for="A">A</label>
+            <input type="radio" name="blood-type" value="b" id="B"> <label for="B">B</label>
+            <input type="radio" name="blood-type" value="ab" id="AB"> <label for="AB">AB</label>
+            <input type="radio" name="blood-type" value="o" checked="checked" id="O"> <label for="O">O</label>
+        </p>
+    </form>
+
+    <form action="" method="post">
+        <p>
+            hobby:
+            <label>
+                <input type="checkbox" name="hobby" value="bkball" checked="checked">Basketball
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="ftball">Football
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="bmball">Badminton
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="swim">Swimming
+            </label>
+        </p>
+        <p>
+            enter your password: <input type="password">
+        </p>
+    </form>
+
+    <form action="" method="POST">
+        <p>
+            Please choose the way of payment：
+            <select>
+                <option value="alipay">Alipay</option>
+                <option value="wechat">WeChat Pay</option>
+                <option value="bank">Net banking</option>
+            </select>
+        </p>
+        <p>
+            Please enter your favorite programming language:
+            <select>
+                <option value="JavaScript" >JavaScript</option>
+                <option value="Java">Java</option>
+                <option value="PHP"selected>PHP</option>
+                <option value="C++">C++</option>
+            </select>
+        </p>
+        <p>
+            Please enter your message:
+            <textarea rows="20" cols="100" placeholder="请输入你的留言"></textarea>
+        </p>
+        <p>
+            <button>Normal button</button>
+            <input type="button" value="Normal button">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </p>
+    </form>
+
+    <h2>html5 new controls</h2>
+    <form action="" method="post">
+        <p>
+            color:
+            <input type="color" name="" id="">
+        </p>
+        <p>
+            data:
+            <input type="date" name="" id=""> time:
+            <input type="time" name="" id="">
+        </p>
+        <p>
+            email:
+            <input type="email" name="" id="">
+        </p>
+        <p>
+            file:
+            <input type="file" name="" id="">
+        </p>
+        <p>
+            number:
+            <input type="number" name="" id="" min="10" max="20">
+        </p>
+        <p>
+            range:
+            <input type="range" name="" id="" min="10" max="20">
+        </p>
+        <p>
+            search:
+            <input type="search" name="" id="">
+        </p>
+        <p>
+            url:
+            <input type="url" name="" id="">
+        </p>
+        <p>
+            必填框:
+            <input type="text" name="" id="" required>
+        </p>
+
+        <p>
+            <input type="text" name="" id="" list="province-lists">
+            <datalist id="province-lists">
+                <option value="山东省">
+                <option value="广东省">
+                <option value="湖北省">
+                <option value="河南省">
+                <option value="河北省">
+                <option value="山西省">
+                <option value="陕西省">
+            </datalist>
+        </p>
+
+        <p>
+            <input type="submit" value="submit">
+        </p>
+    </form>
+
+</body>
+
+</html>

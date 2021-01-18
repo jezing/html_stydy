@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="动画连续无缝滚动特效--定时器实现即可">
+    <title>动画效果1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 1000px;
+            height: 130px;
+            border: 3px solid black;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        
+        .box ul {
+            list-style: none;
+            width: 5000px;
+            position: relative;
+        }
+        
+        .box ul li {
+            float: left;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <ul id="list">
+            <li><img src="../Javascript/img/0.png"></li>
+            <li><img src="../Javascript/img/1.png"></li>
+            <li><img src="../Javascript/img/2.png"></li>
+            <li><img src="../Javascript/img/3.png"></li>
+            <li><img src="../Javascript/img/4.png"></li>
+            <li><img src="../Javascript/img/5.png"></li>
+        </ul>
+    </div>
+
+    <script>
+        var box = document.getElementById("box");
+        var ulist = document.getElementById("list");
+
+        ulist.innerHTML += ulist.innerHTML;
+
+        var timer;
+        var left = 0;
+
+        function move() {
+            clearInterval(timer);
+            timer = setInterval(function() {
+                left -= 4;
+                if (left <= -1320) {
+                    left = 0;
+                }
+                ulist.style.left = left + "px";
+            }, 20)
+        }
+        move();
+
+        ulist.onmouseenter = function() {
+            clearInterval(timer);
+        }
+        ulist.onmouseleave = function() {
+            move();
+        }
+    </script>
+</body>
+
+</html>

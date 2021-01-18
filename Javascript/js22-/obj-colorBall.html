@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball炫彩类</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+
+<body>
+    <script>
+        function Ball(x, y) {
+            this.x = x;
+            this.y = y;
+            this.r = 20;
+            do {
+                this.dx = parseInt((Math.random() * 20) - 10);
+                this.dy = parseInt((Math.random() * 20) - 10);
+            } while (this.dy == 0 && this.dx == 0)
+            this.color = colorArr[parseInt(Math.random() * colorArr.length)];
+
+            this.init();
+
+            this.opacity = 1;
+            ballsArr.push(this);
+        }
+        Ball.prototype.init = function() {
+            this.dom = document.createElement("div");
+            this.dom.className = "ball";
+            this.dom.style.width = this.r * 2 + "px";
+            this.dom.style.height = this.r * 2 + "px";
+            this.dom.style.left = this.x - this.r + "px";
+            this.dom.style.top = this.y - this.r + "px";
+            this.dom.style.backgroundColor = this.color;
+            this.dom.style.opacity = this.opacity;
+
+
+            document.body.appendChild(this.dom);
+        }
+
+
+        Ball.prototype.update = function() {
+            this.x += this.dx;
+            this.y += this.dy;
+            this.opacity -= 0.03;
+            this.r += 0.2;
+            this.dom.style.width = this.r * 2 + "px";
+            this.dom.style.height = this.r * 2 + "px";
+            this.dom.style.left = this.x - this.r + "px";
+            this.dom.style.top = this.y - this.r + "px";
+            this.dom.style.opacity = this.opacity;
+
+            if (this.opacity <= 0) {
+                for (var i = 0; i < ballsArr.length; i++) {
+                    if (this == ballsArr[i]) {
+                        ballsArr.splice(i, 1);
+                    }
+                }
+                document.body.removeChild(this.dom);
+            }
+
+        }
+        var colorArr = ["#66CCCC", "#CCFF66", "#FF99CC", "#FF6666", "#CC3399", "#FF6600"];
+        var ballsArr = [];
+
+
+        setInterval(function() {
+            for (var i = 0; i < ballsArr.length; i++) {
+                ballsArr[i].update();
+            }
+        }, 20);
+
+        document.onmousemove = function(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            new Ball(x, y);
+        }
+    </script>
+</body>
+
+</html>

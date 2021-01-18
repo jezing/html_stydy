@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Stars </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div.red {
+            width: 600px;
+            height: 400px;
+            background-color: red;
+            position: relative;
+        }
+        
+        div.red div {
+            color: gold;
+            position: absolute;
+            font-size: 50px;
+            text-align: center;
+            left: 60px;
+            top: 60px;
+        }
+        
+        div.red div.s1 {
+            font-size: 140px;
+            top: -10px;
+        }
+        
+        div.red div.s2 {
+            font-size: 40px;
+            transform-origin: 60px 60px;
+            transform: rotate(40deg) translateX(160px);
+        }
+        
+        div.red div.s3 {
+            font-size: 40px;
+            transform-origin: 60px 60px;
+            transform: rotate(-20deg) translateX(160px);
+        }
+        
+        div.red div.s4 {
+            font-size: 40px;
+            transform-origin: 60px 60px;
+            transform: rotate(20deg) translateX(160px);
+        }
+        
+        div.red div.s5 {
+            font-size: 40px;
+            transform-origin: 60px 60px;
+            transform: rotate(0deg) translateX(160px);
+        }
+        
+        div.p {
+            margin-top: 100px;
+            perspective: 200px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        
+        p.p1 {
+            transform: rotateX(80deg);
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid red;
+        }
+        
+        p.p2 {
+            transform: rotateX(130deg) translateZ(50px);
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+            border: 1px solid greenyellow;
+        }
+        
+        p.p3 {
+            transform: rotateX(1500deg);
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            border: 1px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="red">
+        <div class="s1">★</div>
+        <div class="s2">★</div>
+        <div class="s3">★</div>
+        <div class="s4">★</div>
+        <div class="s5">★</div>
+    </div>
+
+    <div class="p">
+        <p class="p1"></p>
+        <p class="p2"></p>
+        <p class="p3"></p>
+    </div>
+
+</body>
+
+</html>

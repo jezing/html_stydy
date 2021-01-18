@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值，函数默认参数的结合使用</title>
+</head>
+
+<body>
+    <script>
+        const logUser01 = (username, age, sex) => console.log(username, age, sex);
+        logUser01("alex", 19, "male");
+        console.log("`````````````````````````");
+        const logUser02 = (username = "mr.san", age = 18, sex = "male") => console.log(username, age, sex);
+        logUser02();
+        console.log("`````````````````````````");
+        const logUser03 = options => console.log(options.username, options.age, options.sex);
+        logUser03({
+                username: "Mrs.san",
+                age: 19,
+                sex: "male"
+            })
+            /*options={
+                username: "Mrs.san",
+                age: 19,
+                sex: "male"
+            }*/
+        console.log("`````````````````````````");
+        const logUser04 = ({
+            username,
+            age,
+            sex
+        }) => console.log(username, age, sex);
+        logUser04({
+            username: "zhangsan",
+            age: 20,
+            sex: "male"
+        });
+        /*{username,age,sex}={username: "zhangsan",age: 20,sex: "male"}*/
+        console.log("`````````````````````````");
+        const logUser05 = ({
+            username = "mr.li",
+            age = 18,
+            sex = "female"
+        }) => console.log(username, age, sex);
+        logUser05({});
+        /*
+       {username = "mr.li",
+        age = 18,
+        sex = "female"
+        }={}
+        */
+        console.log("`````````````````````````");
+        const logUser06 = ({
+            username = "mr.li",
+            age = 18,
+            sex = "female"
+        } = {}) => console.log(username, age, sex);
+        logUser06();
+        // {
+        //     username = "mr.li",
+        //     age = 18,
+        //     sex = "female"
+        // } = {}
+        // 这其中一个是解构赋值的默认值，一个是函数参数的默认值。
+        // 所以在之后的函数中可以采用这种方式接受函数的参数。
+
+
+        const logUser07 = userPara => {
+            let defaultPara = {
+                username: "mr.3",
+                age: 19,
+                sex: "male"
+            };
+
+            let paras = {...defaultPara,
+                ...userPara
+            };
+            console.log(paras.username, paras.age, paras.sex);
+
+            let {
+                username,
+                age,
+                sex
+            } = {...defaultPara,
+                ...userPara
+            };
+            console.log(username, age, sex);
+        };
+        logUser07(); //不会报错
+        logUser07({
+            username: "mr.4"
+        })
+    </script>
+</body>
+
+</html>

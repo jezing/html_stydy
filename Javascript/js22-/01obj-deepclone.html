@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深克隆</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {
+            a: 1,
+            b: 2,
+            c: [33, 44, 55, {
+                d: 66,
+                e: 77,
+                f: [88, 99]
+            }]
+        }
+
+        function deepclone(obj) {
+            if (Array.isArray(obj)) {
+                var res = [];
+                for (var i = 0; i < obj.length; i++) {
+                    res.push(deepclone(obj[i]));
+                }
+            } else if (typeof obj == "object") {
+                var res = {};
+                for (var k in obj) {
+                    res[k] = deepclone(obj[k]);
+                }
+            } else {
+                var res = obj;
+            }
+            return res;
+        }
+        var obj1_clone = deepclone(obj1);
+        console.log(obj1_clone);
+    </script>
+</body>
+
+</html>

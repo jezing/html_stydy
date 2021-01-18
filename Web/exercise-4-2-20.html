@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞入效果</title>
+    <style type="text/css">
+        div {
+            font-family: 'Microsoft Yahei';
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 300px;
+            position: absolute;
+            top: -1000px;
+            right: 0;
+            left: 0;
+            width: 400px;
+            height: 300px;
+            margin: auto;
+            text-align: center;
+            border: 5px solid #000;
+            border-radius: 50%;
+            /*此处写代码*/
+            animation: disp 1s ease-in-out 0s forwards;
+        }
+        
+        @keyframes disp {
+            from {
+                top: -1000px
+            }
+            to {
+                top: 50%
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>大家好，欢迎来到慕课网！</div>
+</body>
+
+</html>

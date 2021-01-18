@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            margin-top: 130px;
+            position: relative;
+            perspective: 500px
+        }
+        
+        .box img {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            transform: rotate(0);
+            transition: transform 1s ease 0s;
+        }
+        
+        .box img.dog {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0;
+            transition: transform 1s ease 0s;
+        }
+        
+        .box:hover img.dog {
+            transform: rotateY(-180deg);
+        }
+        
+        .no1 img.dog {
+            transform-origin: 100% 100%;
+        }
+        
+        .no1:hover img.dog {
+            transform: rotateY(180deg);
+        }
+        
+        .no2 img.dog {
+            transform-origin: 50% 0%;
+        }
+        
+        .no2:hover img.dog {
+            transform: rotateX(180deg);
+        }
+        
+        .no2:hover img.cat {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img class="cat" src="/images/icons-rotate-x-y/cat.jpg" alt="">
+        <img class="dog" src="/images/icons-rotate-x-y/dog.jpg" alt="">
+    </div>
+    <div class="box no1">
+        <img class="cat" src="/images/icons-rotate-x-y/cat.jpg" alt="">
+        <img class="dog" src="/images/icons-rotate-x-y/dog.jpg" alt="">
+    </div>
+    <div class="box no2">
+        <img class="cat" src="/images/icons-rotate-x-y/cat.jpg" alt="">
+        <img class="dog" src="/images/icons-rotate-x-y/dog.jpg" alt="">
+    </div>
+
+</body>
+
+</html>

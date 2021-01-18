@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="使用js和css实现动画，并使用函数节流锁进行控制">
+    <title>动画实现</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 100px;
+            margin-top: -100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn"> start</button>
+    <div id="box"></div>
+
+    <script>
+        var box = document.getElementById("box");
+        var btn = document.getElementById("btn");
+
+        var left_tag = true;
+        var lock = true;
+
+        btn.onclick = function() {
+            if (!lock) return;
+            // 设置transition属性使box得到动画效果
+            box.style.transition = "left 2s ease 0s";
+            // 通过判断tag标志表示是否在左边。
+            if (left_tag) {
+                var left = 1000;
+                box.style.left = left + "px";
+                left_tag = false;
+            } else {
+                var left = 100;
+                box.style.left = left + "px";
+                left_tag = true;
+            }
+            lock = false;
+
+            setTimeout(function() {
+                lock = true;
+            }, 2000);
+
+        }
+    </script>
+</body>
+
+</html>

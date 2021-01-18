@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback hell问题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            box-sizing: border-box;
+            border: 1px solid #000;
+            transition: all .5s ease-in-out 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box');
+        const move = (elem, {
+            x = 0,
+            y = 0
+        } = {}, end = () => {}) => {
+            elem.style.transform = `translate3d(${x}px,${y}px,0)`;
+
+            elem.addEventListener("transitionend", () => {
+                end()
+            }, false);
+        }
+        document.addEventListener("click", () => {
+            console.log("document");
+            move(box, {
+                x: 100
+            }, () => {
+                move(box, {
+                    x: 100,
+                    y: 100
+                }, () => {
+                    move(box, {
+                        y: 100
+                    }, () => {
+                        move(box)
+                    })
+                });
+            })
+        }, false);
+    </script>
+</body>
+
+</html>

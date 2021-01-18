@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <script>
+        const [p1, p2, p3] = document.querySelectorAll("p");
+        // const m1 = new Map([
+        //     [p1, "red"],
+        //     [p2, "green"],
+        //     [p3, "blue"]
+        // ])
+        // m1.forEach((color, elem) => {
+        //     elem.style.color = color;
+        // })
+
+
+        // const m2 = new Map([
+        //     [p1, new Map([
+        //         ["color", "red"],
+        //         ["backgroundColor", "black"],
+        //         ["fontSize", "40px"]
+        //     ])],
+        //     [p2, new Map([
+        //         ["color", "green"],
+        //         ["backgroundColor", "pink"],
+        //         ["fontSize", "40px"]
+        //     ])],
+        //     [p3, new Map([
+        //         ["color", "blue"],
+        //         ["backgroundColor", "orange"],
+        //         ["fontSize", "40px"]
+        //     ])]
+        // ])
+        // m2.forEach((propObj, elem) => {
+        //     propObj.forEach((styleValue, styleKey) => {
+        //         elem.style[styleKey] = styleValue
+        //     })
+        // })
+
+        const m3 = new Map(
+            [
+                [p1, {
+                    color: "red",
+                    backgroundColor: "black",
+                    fontSize: "50px",
+                    fontWeight: "bold"
+                }],
+                [p2, {
+                    color: "green",
+                    backgroundColor: "pink",
+                    fontSize: "50px",
+                    fontWeight: "bold"
+                }],
+                [p3, {
+                    color: "blue",
+                    backgroundColor: "orange",
+                    fontSize: "50px",
+                    fontWeight: "bold"
+                }]
+            ]
+        );
+        // elem表示每一个p标签dom元素
+        // stylesValue表示对象,遍历每一个对象的键值对,
+        // elem.style[value]表示elem.style.value
+        // stylesValue[value]表示在对象中的value的值是什么。对于每一个value在对象中进行遍历 。
+        m3.forEach((stylesValue, elem) => {
+            for (const value in stylesValue) {
+                elem.style[value] = stylesValue[value]
+            }
+        })
+    </script>
+</body>
+
+</html>

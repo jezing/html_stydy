@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletor Text</title>
+    <style>
+        .box1,
+        .box2 {
+            border: 1px solid;
+        }
+        
+        p {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .box1 p {
+            font-style: italic;
+        }
+        
+        .box1>p {
+            color: bisque;
+        }
+        
+        input+p {
+            color: brown;
+        }
+        
+        input~p {
+            font-size: 20px;
+        }
+        
+        .box2 p:first-child {
+            color: red;
+        }
+        
+        .box2 p:last-child {
+            color: brown;
+        }
+        
+        .box2 p:nth-of-type(3) {
+            color: green;
+            font-size: 30px;
+        }
+        
+        .box2 h3:nth-of-type(3) {
+            color: fuchsia;
+        }
+        
+        .para:empty {
+            background-color: green;
+        }
+        
+        input:focus {
+            background-color: #cfc;
+        }
+        
+        input:disabled {
+            background-color: gray;
+        }
+        
+        input:enabled {
+            border: 2px solid blue;
+        }
+        
+        input:checked+span {
+            color: red;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        a::before {
+            content: "♥";
+        }
+        
+        a::after {
+            content: "★";
+        }
+        
+        .container {
+            border: 1px solid #000;
+            width: 300px;
+            height: 300px;
+        }
+        
+        .container::selection {
+            background-color: aquamarine;
+            color: darkmagenta;
+        }
+        
+        .container::first-letter {
+            font-size: 50px;
+        }
+        
+        .container::first-line {
+            text-decoration: underline;
+        }
+        
+        li.spec {
+            color: red
+        }
+        /* #uList {
+            font-size: 50px;
+            background-color: blue;
+        }
+        
+        div #uList {
+            font-size: 20px;
+            background-color: red;
+        } */
+        
+        #uList .spec1 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="uList">
+            <li class="spec1">list item</li>
+            <li class="spec2">list item</li>
+            <li class="spec3">list item</li>
+            <li class="spec4">list item</li>
+        </ul>
+    </div>
+
+    <div>
+        <a href="">我是超级链接</a>
+        <a href="">我是超级链接</a>
+        <a href="">我是超级链接</a>
+    </div>
+
+    <div class="container">
+        文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+    </div>
+
+    <p></p>
+    <div class="box1">
+        <p>1</p>
+        <p>2</p>
+        <div>
+            <input type="text">
+            <p>3</p>
+            <p>4</p>
+        </div>
+        <p>5</p>
+        <p>6</p>
+    </div>
+
+    <div class="box2">
+        <p>1</p>
+        <p>2</p>
+        <h3>one</h3>
+        <h3>two</h3>
+        <p>3</p>
+        <p>4</p>
+        <h3>three</h3>
+        <h3>four</h3>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+    </div>
+
+    <p class="para"></p>
+    <p class="para"></p>
+    <p class="para">123</p>
+    <p class="para"> </p>
+    <p class="para">456</p>
+
+    <div>
+        <input type="text">
+        <input type="text" disabled>
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </div>
+
+    <div>
+        <input type="checkbox" name="cb"><span>1</span>
+        <input type="checkbox" name="cb"><span>2</span>
+        <input type="checkbox" name="cb"><span>3</span>
+        <input type="checkbox" name="cb"><span>4</span>
+    </div>
+</body>
+
+</html>

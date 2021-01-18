@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="动画轮播图循环播放">
+    <title>动画效果2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 650px;
+            height: 360px;
+            border: 1px solid #000;
+            position: relative;
+            margin: 50px auto;
+        }
+        
+        #box ul {
+            list-style: none;
+        }
+        
+        #box ul li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: opacity 1s ease 0s;
+        }
+        
+        #box ul li:first-child {
+            opacity: 1;
+        }
+        
+        .btn {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: aqua;
+            top: 50%;
+            margin-top: -20px;
+            border-radius: 50%;
+        }
+        
+        .left {
+            left: 20px;
+        }
+        
+        .right {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="list">
+            <li><img src="/Javascript/img/beijing/0.jpg"></li>
+            <li><img src="/Javascript/img/beijing/1.jpg"></li>
+            <li><img src="/Javascript/img/beijing/2.jpg"></li>
+            <li><img src="/Javascript/img/beijing/3.jpg"></li>
+            <li><img src="/Javascript/img/beijing/4.jpg"></li>
+        </ul>
+        <a href="javascript:;" class="btn left" id="leftbtn"></a>
+        <a href="javascript:;" class="btn right" id="rightbtn"></a>
+    </div>
+
+    <script>
+        var box = document.getElementById("box");
+        var ulist = document.getElementById("list");
+        var letf_btn = document.getElementById("leftbtn");
+        var right_btn = document.getElementById("rightbtn");
+
+        var lis = document.getElementsByTagName("li");
+
+        var index = 0;
+
+        var lock = true;
+        right_btn.onclick = function() {
+            if (!lock) return;
+            lock = false;
+            // 旧图透明度淡出
+            lis[index].style.opacity = 0;
+            // 下标加一
+            index++;
+            // 最后一张图片是下标变为0
+            if (index > 4) index = 0;
+            // 新图透明度变为1
+            lis[index].style.opacity = 1;
+            // 节流锁
+            setTimeout(function() {
+                lock = true;
+            }, 1000);
+        };
+
+        letf_btn.onclick = function() {
+            if (!lock) return;
+            lock = false;
+            lis[index].style.opacity = 0;
+            if (index == 0) {
+                index = 4;
+            } else {
+                index--;
+            }
+            lis[index].style.opacity = 1;
+            setTimeout(function() {
+                lock = true;
+            }, 1000);
+        };
+    </script>
+</body>
+
+</html>

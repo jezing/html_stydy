@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM-window</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var a = 0;
+        console.log(window.hasOwnProperty("a"));
+        console.log(window.a == a);
+        console.log(a);
+
+        window.onresize = function() {
+            console.log("窗口内宽（包含滚动条）", window.innerWidth);
+            console.log("窗口内宽（不包含滚动条）", document.documentElement.clientWidth);
+            console.log("窗口内高（包含滚动条）", window.height);
+            console.log("窗口内宽（不包含滚动条）", document.documentElement.clientHeight);
+
+
+        }
+        window.onscroll = function() {
+            console.log("窗口外宽", window.outerWidth);
+            console.log("窗口外高", window.outerHeight);
+            console.log("已卷动高度，只读属性", window.scrollY);
+            console.log("已动高度，可读写属性", document.documentElement.scrollTop);
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="动画轮播图循环播放">
+    <title>动画效果2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 650px;
+            height: 360px;
+            border: 1px solid #000;
+            position: relative;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        
+        #box ul {
+            list-style: none;
+            width: 5000px;
+            position: relative;
+            transition: all .5s ease 0s;
+            left: 0;
+        }
+        
+        #box ul li {
+            float: left;
+        }
+        
+        .btn {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: aqua;
+            top: 50%;
+            margin-top: -20px;
+            border-radius: 50%;
+        }
+        
+        .left {
+            left: 20px;
+        }
+        
+        .right {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="list">
+            <li><img src="/Javascript/img/beijing/0.jpg"></li>
+            <li><img src="/Javascript/img/beijing/1.jpg"></li>
+            <li><img src="/Javascript/img/beijing/2.jpg"></li>
+            <li><img src="/Javascript/img/beijing/3.jpg"></li>
+            <li><img src="/Javascript/img/beijing/4.jpg"></li>
+        </ul>
+        <a href="javascript:;" class="btn left" id="leftbtn"></a>
+        <a href="javascript:;" class="btn right" id="rightbtn"></a>
+    </div>
+
+    <script>
+        var box = document.getElementById("box");
+        var ulist = document.getElementById("list");
+        var letf_btn = document.getElementById("leftbtn");
+        var right_btn = document.getElementById("rightbtn");
+
+        // 复制第一张图片
+        var clone_node = ulist.firstElementChild.cloneNode(true);
+        ulist.appendChild(clone_node);
+        // 表示现在是第几张图片
+        var index = 0;
+        // 函数节流锁
+        var lock = true;
+        // 右边按钮事件
+        rightbtn.onclick = function() {
+            // 判断节流锁
+            if (!lock) return;
+            // 得到锁
+            lock = false;
+            // 设置ul的过渡属性
+            ulist.style.transition = "all .5s ease 0s";
+            // 张数增加
+            index++;
+            // 如果是最后一张则直接通过一个延时器将图片设置到第一张,而且是不经过过去的.
+            // 如果不是最后一张则跳过直接进行过渡判断。
+            if (index > 4) {
+                setTimeout(function() {
+                    ulist.style.transition = "none";
+                    index = 0;
+                    ulist.style.left = 0;
+                }, 500)
+            }
+            ulist.style.left = -index * 650 + "px";
+
+            // 函数节流锁延迟器
+            setTimeout(function() {
+                lock = true;
+            }, 500)
+        }
+
+        leftbtn.onclick = function() {
+            if (!lock) return;
+
+            lock = false;
+            // 如果是第一张,则先进行无过渡跳到最后一张伪图片,然后再设置一个0秒延迟器进行跳转到倒数第一张图片
+            // 如果不是第一张，则将图片往左减少一张、
+            if (index == 0) {
+                ulist.style.transition = "none";
+                index = 5;
+                ulist.style.left = -index * 650 + "px";
+
+                setTimeout(function() {
+                    ulist.style.transition = "all .5s ease 0s";
+                    index--;
+                    ulist.style.left = -index * 650 + "px";
+                }, 0);
+            } else {
+                index--;
+                ulist.style.left = -index * 650 + "px";
+            }
+            setTimeout(function() {
+                lock = true;
+            }, 500)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 分组和嵌套选择器</title>
+    <style>
+        p {
+            color: coral;
+            text-align: center;
+            font-size: x-large;
+        }
+        .marked {
+            background-color: black;
+        }
+        .marked p {
+            color:white;
+        }
+        p.marked{
+            font-size: small;
+            background-color: turquoise;
+            color: thistle;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        this is p
+    </p>
+    <div class="marked">
+        <p>
+            this is .marked p 
+        </p>
+        <p class="marked">
+            this is .marked p.marked
+        </p>
+    </div>
+    <p class="marked">this is p.marked </p>
+</body>
+</html>

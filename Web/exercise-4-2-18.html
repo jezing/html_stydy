@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>向下滑动的箭头指示标</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            font-family: Arial;
+            font-size: 72px;
+            font-weight: bold;
+            position: fixed;
+            right: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            margin: auto;
+            bottom: 10px;
+            transform: rotate(90deg);
+            /*此处写代码*/
+            animation: slice 1s linear 0.5s infinite alternate;
+        }
+        
+        @keyframes slice {
+            from {
+                transform: translateY(0) rotate(90deg);
+            }
+            to {
+                transform: translateY(-300px) rotate(90deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>&gt;</div>
+</body>
+
+</html>

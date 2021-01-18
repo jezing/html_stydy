@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的功能：将对应的全局变量转变为局部变量</title>
+</head>
+
+<body>
+    <script>
+        // var arr = [];
+        // for (var i = 0; i <= 5; i++) {
+        //     arr.push(function() {
+        //         alert(i);
+        //     })
+        // }
+        // arr[0]();
+        // arr[1]();
+        // arr[2]();
+        // arr[3]();
+        // arr[4]();
+        // arr[5]();
+
+        var arr = [];
+        for (var i = 0; i <= 5; i++) {
+            (function(i) {
+                arr.push(function() {
+                    alert(i);
+                })
+            })(i);
+        }
+        arr[0]();
+        arr[1]();
+        arr[2]();
+        arr[3]();
+        arr[4]();
+        arr[5]();
+    </script>
+</body>
+
+</html>

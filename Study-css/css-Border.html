@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Border</title>
+    <style>
+        p {
+            padding-left: 10px;
+            padding-right: auto;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            border-width: medium;
+        }
+        p.dash {
+            border-style: dashed;
+            
+        }
+        p.solid {
+            border-style: solid;
+            
+        }
+        p.outset{
+            border-style: outset;
+            border-color: cadetblue;
+        }
+
+        p.mgtop-bott{
+            margin-top: 5cm;
+            margin-bottom: 10%;
+        }
+    </style>
+</head>
+<body>
+    <p class="dash">虚线边框</p>
+    <p class="solid">实线边框</p>
+    <p class="outset">实线边框</p>
+    <p class="mgtop-bott">margin one</p>
+    <p>margin two</p>
+</body>
+</html>
