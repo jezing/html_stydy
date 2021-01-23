@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.all()</title>
+</head>
+
+<body>
+    <script>
+        const delayMs = ms => {
+            return new Promise((resolve, reject) => {
+                setTimeout(resolve, ms);
+            })
+        }
+        const p1 = delayMs(1000).then(() => {
+            console.log("p1 is finnished!");
+            return "p1";
+        })
+
+        const p2 = delayMs(2000).then(() => {
+            console.log("p2 is finnished!");
+            return "p2";
+        })
+
+        const p3 = delayMs(3000).then(() => {
+            console.log("p3 is finnished!");
+            return Promise.reject("p3 error")
+        })
+        const p4 = delayMs(4000).then(() => {
+            console.log("p4 is finnished!");
+            return "p4"
+        })
+
+        //Promise.all的状态与所有传入的Promise实例对象状态有关
+        // 所有状态都是resolved，则最终状态才为resolved
+        // 只要有一个状态是rejected，则最终状态就为rejected
+        const p5 = Promise.all([p1, p2]);
+        p5.then(data => {
+            console.log(data);
+        }, error => {
+            console.log(error);
+        })
+
+        const p6 = Promise.all([p3, p4]);
+        p6.then(data => {
+            console.log(data);
+        }, error => {
+            console.log(error);
+        })
+    </script>
+</body>
+
+</html>

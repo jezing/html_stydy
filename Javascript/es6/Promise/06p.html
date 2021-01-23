@@ -70,11 +70,17 @@
 
         // Promise.reject()
         // rejeced状态的Promise的一种简写
-        Promise.reject("Data");
+        Promise.reject("data").catch(err => console.log(err));
         // 相当于
         new Promise((resolve, reject) => {
-            reject("Data");
+            reject("data");
+        }).catch(err => console.log(err))
+
+        //参数，不管什么参数都会原封不动的向后传递，作为后续方法的参数
+        const p2 = new Promise(resolve => {
+            setTimeout(resolve, 1000, "its running");
         })
+        Promise.reject(p2).then(err => console.log(err));
     </script>
 </body>
 
