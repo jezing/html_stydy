@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.race()，Promise.allSettled()</title>
+</head>
+
+<body>
+    <script>
+        // Promise.race()
+        const delayMs = ms => {
+            return new Promise(resolve => {
+                setTimeout(resolve, ms);
+            })
+        }
+        const p1 = delayMs(1000).then(() => {
+            console.log("p1 is finished");
+            // 默认返回一个执行成功的Promise
+            /*
+            return Promise.resolve();
+            */
+
+            // return "p1";
+            return Promise.reject("it is error reason");
+
+
+        })
+
+        const p2 = delayMs(2000).then(() => {
+            console.log("p2 is finished");
+            return "p2";
+            // return Promise.reject("it is the fail reason")
+        })
+
+        // Promise.race的状态取决于第一个完成的Promise实例对象，
+        // 如果第一个完成的对象是成功的，则最后返回的是一个成功的状态 
+        // 如果是失败的则返回一个失败的状态对象
+        // const racePromise = Promise.race([p1, p2]);
+        // racePromise.then(data => {
+        //     console.log(data);
+        // }, err => {
+        //     console.log(err);
+        // })
+
+
+        // Promise.allSettled()
+        // 与传入的状态无关，只会忠实的记录各个Promise的状态表现
+        // 永远都只会执行resolved的状态
+        const allSettledPromise = Promise.allSettled([p1, p2]);
+        allSettledPromise.then(data => {
+            console.log("succ", data);
+        })
+    </script>
+</body>
+
+</html>
