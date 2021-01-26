@@ -18,6 +18,9 @@
                 this.name = name;
                 this.age = age;
                 this.sex = sex;
+                this.say = function() {
+
+                }
             }
 
             speak() {
@@ -29,10 +32,15 @@
             }
         }
 
-        const alex = new Person(age = 19, name = "alex", sex = "female");
-        console.log(alex);
-        alex.speak();
+        const alex1 = new Person(age = 19, name = "alex", sex = "female");
+        const alex2 = new Person(age = 19, name = "alex", sex = "female");
+        console.log(alex1);
+        alex1.speak();
         Person.talk();
+        console.log(alex1.speak === alex2.speak); //true
+        console.log(alex1.say === alex2.say); //false
+        console.log(alex1.speak === Person.prototype.speak); //true
+        console.log(alex1.say === Person.say); //false
     </script>
 </body>
 
