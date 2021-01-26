@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 的基本使用</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            name = "person";
+            age = 0;
+            sex = "null";
+
+            constructor(name, age, sex) {
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+            }
+
+            speak() {
+                console.log("speaking");
+            }
+
+            static talk() {
+                console.log("talking");
+            }
+        }
+
+        const alex = new Person(age = 19, name = "alex", sex = "female");
+        console.log(alex);
+        alex.speak();
+        Person.talk();
+    </script>
+</body>
+
+</html>

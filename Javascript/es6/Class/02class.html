@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 模拟静态方法和属性</title>
+</head>
+
+<body>
+    <script>
+        //方法一，將私有屬性和方法添加_下划线进行隐藏
+        //只暴露需要暴露的接口api进行调用
+
+        // class Person {
+        //     constructor(name, age) {
+        //         this._name = name;
+        //         this._age = age;
+        //     }
+        //     getName() {
+        //         return this._name;
+        //     }
+        // }
+        // const alex = new Person(name = "alex", age = 18);
+        // console.log(alex.name); // undefined
+        // console.log(alex.getName()); //alex
+
+        //方法二，使用IIFE包裹类，将类的私有属性和方法提出类的定义中
+        (function() {
+            let name = "";
+            let speak = function() {
+                console.log("people  is  speaking");
+            }
+
+            class Person {
+                constructor(uesr_name, user_age) {
+                    name = uesr_name;
+                    this.age = user_age;
+                }
+
+                talk() {
+                    console.log("talking");
+                }
+            }
+
+            window.Person = Person;
+        })()
+
+        const p1 = new Person("alex", 18);
+        // 不能直接通过实力调用对应的私有属性和方法
+        console.log(p1.name); //undefined
+        console.log(p1.age); //18
+        // p1.speak();//报错
+        p1.talk(); //talking
+
+        //方法二会一定程度上去破坏类的封装性，在对封装性要求较低的开发项目中可以使用方法一进行私有化
+        // 只有在对私有化要求很高的项目中才会使用IIFE对Class进行对应的包裹
+    </script>
+</body>
+
+</html>

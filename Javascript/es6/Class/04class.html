@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 继承 super</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name) {
+                this.name = name;
+                console.log(this);
+            }
+            speak() {
+
+                console.log(`${this.name} People speaking `);
+            }
+
+            static speak() {
+                console.log(`$People static speaking `);
+            }
+        }
+
+        class Student extends Person {
+            constructor(name) {
+                //super作为函数嗲用只能在构造函数中进行使用，在其他地方抵用super()会报错
+                super(name);
+                // super代表了父类的prototype
+                // 定义在父类上的方法和属性是无法通过super调用的
+                // console.log(super.name); //undefined
+
+
+            }
+            speak() {
+                // super代表了父类的prototype
+                // 调用super父类的方法中的this指向仍然是指向子类本身的实例对象
+                super.speak();
+                console.log("student speaking");
+            };
+
+            static speak() {
+                //super指向父类本身。在这即是Person
+                super.speak();
+            }
+
+        }
+
+        Student.speak(); //suoer只是调用父类的构造函数，对应的内部this仍然指向子类实例对象
+    </script>
+</body>
+
+</html>

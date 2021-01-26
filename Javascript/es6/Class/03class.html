@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 继承 extends</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, sex) {
+                this.name = name;
+                this.sex = sex;
+
+                this.say = function() {
+                    console.log("people saying");
+                }
+
+
+            }
+            speak() {
+                console.log("people speaking");
+            }
+
+            static speak() {
+                console.log("people static speaking");
+            }
+        }
+
+        class Student extends Person {
+            constructor(name, sex, score) {
+                // this.score = score //报错
+                //super 操作前面不可以有关于this的操作
+                super(name, sex);
+
+                this.score = score;
+
+                // 同名覆盖方法
+                this.say = function() {
+                    console.log(`${this.name} saying`);
+                }
+
+            }
+
+            // 同名覆盖方法
+            speak() {
+                console.log(`${this.name} speaking`);
+            }
+
+            // 同名覆盖方法
+            static speak() {
+                console.log(`${this.name} static speaking`);
+            }
+
+        }
+        const stu1 = new Student("alex", "male", 18);
+        console.log(stu1.name);
+        console.log(stu1.sex);
+        console.log(stu1.score);
+        stu1.say();
+        stu1.speak();
+        Student.speak();
+    </script>
+</body>
+
+</html>
