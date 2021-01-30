@@ -1,0 +1,7 @@
+body {
+    /* webpack 只会处理本地的图片，在远程端的图片会直接运行 */
+    /* background-image: url(https://www.imooc.com/static/img/index/logo.png); */
+    /* 本地图片要使用file-loader进行使用 */
+    background-image: url(../img/goblin.png);
+    background-repeat: no-repeat;
+}
