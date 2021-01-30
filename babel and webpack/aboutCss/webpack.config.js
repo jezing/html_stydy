@@ -13,7 +13,8 @@ module.exports = {
     module: {
         rules: [{
             test: /\.css$/,
-            loader: "css-loader"
+            // loader: "css-loader" //单loader
+            use: ["style-loader", "css-loader"] //多loader时，注意顺序，从右往左运行
         }]
     },
     plugins: [
