@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST cookie</title>
+  </head>
+
+  <body>
+      <button id="cn">chinese</button>
+      <button id="en">english</button>
+    <script type="module">
+    //   import {set,get,remove} from "./cookie.js";
+    //   set("username", "alex");
+    //   set("username", "张三");
+    //   set("age", 18);
+    //   set("用户名", "lisa");
+    
+    //   remove("username");  
+    //   remove("用户名");  
+    
+    //   console.log(get("username"));
+    //   console.log(get("age"));
+    //   console.log(get("用户名"));
+    
+      import {set} from "./cookie.js";
+      const cnBtn = document.getElementById("cn");
+      const enBtn = document.getElementById("en");
+        
+      cnBtn.addEventListener("click",()=>{
+          set("language","cn",{maxAge:30*24*3600});
+          window.location.reload();
+      },false);
+      
+      enBtn.addEventListener("click",()=>{
+          set("language","en",{maxAge:30*24*3600});
+          window.location.reload();
+      },false);
+    </script>
+  </body>
+</html>
